@@ -28,16 +28,16 @@ app.MapGet("/", async http =>
 
         // Intialize GraphQL client
 
-        graphQLClient = new GraphQLHttpClient("https://developer.api.autodesk.com/manufacturing/graphql/v1",
+        graphQLClient = new GraphQLHttpClient("https://developer.api.autodesk.com/fusiondata/2022-04/graphql",
            new SystemTextJsonSerializer());
         graphQLClient.HttpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
-        //Task 1 – Pick a Hub to Work With
+        //Task 1 â€“ Pick a Hub to Work With
         await GetAllHubs();
-        // Task 2 – Pick a Project to Work With
+        // Task 2 â€“ Pick a Project to Work With
         await GetAllProjects();
-        // Task 3 – Pick a Component
+        // Task 3 â€“ Pick a Component
         await GetComponents();
-        // Task 4 – Generate Thumbnails of a Component
+        // Task 4 â€“ Generate Thumbnails of a Component
         await GenerateThumbnail();
         // Task 5 - Download the Thumbnail
         await DownloadThumbnail();
@@ -70,7 +70,7 @@ app.MapGet("/callback/oauth", async http =>
 
 #region GraphQL
 /////////////////////////////////////////
-///Task 1 – Pick a Hub to Work With
+///Task 1 â€“ Pick a Hub to Work With
 //Function that fetches all the hubs you have access to
 // Response will be in this format:
 //{
@@ -115,7 +115,7 @@ async Task GetAllHubs()
 
 
 /////////////////////////////////////////
-///Task 2 – Pick a Project to Work With
+///Task 2 â€“ Pick a Project to Work With
 //Function that fetches list of Projects within a Hub
 // Response will be in this format:
 //{
@@ -177,7 +177,7 @@ async Task GetAllProjects()
 
 
 /////////////////////////////////////////
-///Task 3 – Pick a Component
+///Task 3 â€“ Pick a Component
 //Function that requests for a list of Components within a Folder
 // Response will be in this format:
 //{
@@ -221,7 +221,7 @@ async Task GetComponents()
 
 
 /////////////////////////////////////////
-///Task 4 – Generate a Thumbnail for a Component
+///Task 4 â€“ Generate a Thumbnail for a Component
 //Function to Extract the Component Version within the Component
 // Response will be in this format:
 //{
@@ -281,7 +281,7 @@ async Task GenerateThumbnail()
 }
 
 /////////////////////////////////////////
-///Task 5 – Obtain Thumbnail URL of a Component
+///Task 5 â€“ Obtain Thumbnail URL of a Component
 //Function to extract the URL of the Thumbnail and download it to temp
 // Response will be in this format:
 //{
