@@ -10,9 +10,9 @@ var app = builder.Build();
 
 GraphQLHttpClient? graphQLClient = null;
 string? accessToken = null;
-const string clientId = "<your client id";
-const string clientSecret = "your client secret";
-const string redirectUri = @"callback url";
+const string clientId = "BdQHm42Dvz5dOOVU6JiJ1Xxj2iHcL3Ks";
+const string clientSecret = "9YCbioHIJ5hYGLVf";
+const string redirectUri = @"http://localhost:3000/callback/oauth";
 
 
 /****************************
@@ -36,11 +36,11 @@ app.MapGet("/", async http =>
         // Task 2 – Pick a Project to Work With
         await GetAllProjects();
         // Task 3 – Pick a Component
-        await GetComponents();
+        //await GetComponents();
         // Task 4 – Generate Thumbnails of a Component
-        await GenerateThumbnail();
+        //await GenerateThumbnail();
         // Task 5 - Download the Thumbnail
-        await DownloadThumbnail();
+        //await DownloadThumbnail();
         return;
     }
 
@@ -146,7 +146,7 @@ async Task GetAllHubs()
 async Task GetAllProjects()
 {
     // use the hub id fetched from the previous method;
-    var hub_id = "a.YnVzaW5lc3M6YXV0b2Rlc2s0ODI4";
+    var hub_id = "a.cGVyc29uYWw6dWUyOTdiODg3";
     var getProjectsRequest = new GraphQLRequest
     {
         Query = @"query GetProjects ($hubId : String!) {
