@@ -1,8 +1,14 @@
 using Autodesk.Forge;
+using Autodesk.Forge.Model;
 using GraphQL;
 using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.SystemTextJson;
 using System.Text.Json.Nodes;
+
+
+
+
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,10 +37,12 @@ app.MapGet("/", async http =>
         graphQLClient = new GraphQLHttpClient("https://developer.api.autodesk.com/fusiondata/2022-04/graphql",
            new SystemTextJsonSerializer());
         graphQLClient.HttpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
+
+        await Programa1.Execute(accessToken);
         //Task 1 – Pick a Hub to Work With
-        await GetAllHubs();
+        //await GetAllHubs();
         // Task 2 – Pick a Project to Work With
-        await GetAllProjects();
+        //await GetAllProjects();
         // Task 3 – Pick a Component
         //await GetComponents();
         // Task 4 – Generate Thumbnails of a Component
